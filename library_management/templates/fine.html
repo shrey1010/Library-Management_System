@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+ {% block content %}
+<center>
+  <br />
+  <h1 class="display-5 fw-bold">Your History</h1>
+  <br />
+</center>
+<div class="container">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+            <th>Book Name</th>
+            <th>Author Name</th>
+            <th>Issue Date</th>
+            <th>Return Date</th>
+            <th>Fine (Rs.)</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for fine in fines %}
+            <tr>
+                <td>{{ fine.item.book_name }}</td>
+                <td>{{ fine.author_name }}</td>
+                <td>{{ fine.item.issue_date }}</td>
+                <td>{{ fine.item.return_date }}</td>
+                <td>{{ fine.fine }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+<div class="mx-auto" style="width: 200px">
+  <nav aria-label="...">
+  </nav>
+</div>
+<style>
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 10px;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 16px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
+  .container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .input-group {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  body {
+    background: linear-gradient(#87f4b5, #93cbf1);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+</style>
+
+{% endblock %}
+
